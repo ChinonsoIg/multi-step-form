@@ -1,3 +1,13 @@
+:root {
+  --white: white;
+  --bg-color-lit: rgba(252, 159, 28, 0.1);
+  --header: rgb(243, 91, 28);
+  --text-color: rgb(252, 159, 28);
+  --text-color-lit: rgb(253, 190, 19);
+  --text-color-dark: rgb(121, 41, 6);
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +17,74 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+h2 {
+  color: #f35b1c;
 }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-color-lit);
+  height: 50px;
+
+  /* border: 2px solid red */
+}
+button {
+  padding: 10px;
+  color: var(--white);
+  background-color: var(--header);
+  border: none;
+  font-size: 20px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+button:hover {
+  background-color: var(--bg-color-lit);
+  color: var(--header);
+  border: 2px solid var(--header);
+}
+a {
+  padding: 13px;
+  text-decoration: none;
+  color: var(--text-color-dark);
+  border: 1px solid red;
+}
+a:hover {
+  cursor: pointer;
+  padding-top: 10px;
+  color: var(--header);
+  transition: all .1s ease-out;
+}
+
+.wrapper {
+  background-color: var(--white);
+}
+
+.stripe {
+  height: 6px;
+  background-image: linear-gradient(to right, var(--header), var(--text-color-lit));
+  margin: 0 auto;
+}
+
+.swed-header {
+  margin: 0;
+  font-size: 22px;
+  padding: 10px 15px;
+  background: -webkit-linear-gradient(var(--text-color-lit), var(--header));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* text-shadow: 
+    0.025em 0.025em 0 yellow,
+    0.05em 0.05em 0 blue,
+    0.075em 0.075em 0 red,
+    0.1em 0.1em 0 black
+  ; */
+}
+
+.home-container {
+  padding: 0 10px;
+}
+
+
+/* For NavBar Component */
