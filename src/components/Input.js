@@ -1,16 +1,15 @@
 import React from 'react'
 
-const Input = () => {
+const Input = ({ name, value, label, placeHolder, onChange, title }) => {
+
   return (
     <div>
-      <form>
-        <label>
-          Name:
-          <input type="text" name="name" />
-        </label>
-      </form>
+      <label>
+        {label}:
+        <input type="text" name={name} placeholder={placeHolder} value={value} onChange={onChange} title={title} />
+      </label>
     </div>
-  )
+  );
 }
 
 export default Input;

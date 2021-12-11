@@ -5,6 +5,7 @@
   --text-color: rgb(252, 159, 28);
   --text-color-lit: rgb(253, 190, 19);
   --text-color-dark: rgb(121, 41, 6);
+  --gray-lit: #d9d9d9;
 }
 
 
@@ -23,13 +24,57 @@ h2 {
 }
 nav {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: var(--bg-color-lit);
   height: 50px;
 
   /* border: 2px solid red */
 }
+nav > a {
+  flex: 5;
+  padding: 13px;
+  text-decoration: none;
+  color: var(--text-color-dark);
+  text-align: center;
+  border: 1px solid var(--gray-lit);
+  border-right: none;
+}
+nav > a:first-child {
+  max-width: 15px;
+  padding: 0;
+  text-decoration: none;
+  color: var(--text-color-dark);
+  text-align: center;
+  border: 1px solid var(--gray-lit);
+  border-left: none;
+  border-right: none;
+}
+nav > a:last-child {
+  max-width: 15px;
+  padding: 0;
+  text-decoration: none;
+  color: var(--text-color-dark);
+  text-align: center;
+  border: 1px solid var(--gray-lit);
+  border-right: none;
+}
+nav > a:hover {
+  cursor: pointer;
+  padding-top: 10px;
+  color: var(--header);
+  transition: all .1s ease-out;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
 button {
   padding: 10px;
   color: var(--white);
@@ -37,24 +82,12 @@ button {
   border: none;
   font-size: 20px;
   border-radius: 5px;
-  margin: 10px 0;
+  margin: 10px 0 10px 20px;
 }
 button:hover {
   background-color: var(--bg-color-lit);
   color: var(--header);
   border: 2px solid var(--header);
-}
-a {
-  padding: 13px;
-  text-decoration: none;
-  color: var(--text-color-dark);
-  border: 1px solid red;
-}
-a:hover {
-  cursor: pointer;
-  padding-top: 10px;
-  color: var(--header);
-  transition: all .1s ease-out;
 }
 
 .wrapper {
@@ -74,16 +107,24 @@ a:hover {
   background: -webkit-linear-gradient(var(--text-color-lit), var(--header));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* text-shadow: 
-    0.025em 0.025em 0 yellow,
-    0.05em 0.05em 0 blue,
-    0.075em 0.075em 0 red,
-    0.1em 0.1em 0 black
-  ; */
 }
 
 .home-container {
-  padding: 0 10px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.form-container {
+  padding: 15px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 15px;
 }
 
 
