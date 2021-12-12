@@ -104,6 +104,7 @@ button:hover {
   font-size: 22px;
   padding: 10px 15px;
   background: -webkit-linear-gradient(var(--text-color-lit), var(--header));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -121,7 +122,7 @@ button:hover {
   margin: 15px;
   border-radius: 5px;
   background-color: #f2f2f2;
-  border: 2px solid red
+  border: 2px solid red;
 }
 
 .btn-container {
@@ -131,6 +132,90 @@ button:hover {
   align-items: center;
   margin: 30px 0 0 0;
 }
+
+/* Stepper component */
+ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid green;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  /* border: 2px solid red; */
+}
+
+.step-passed {
+  visibility: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  color: var(--white);
+  font-size: 22px;
+  font-weight: 600;
+  border: 1px solid var(--text-color);
+  border-radius: 50%;
+  background-color: var(--text-color);
+}
+
+.step-passed::after {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '\2713';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  color: var(--white);
+  font-size: 22px;
+  font-weight: 600;
+  border: 1px solid var(--text-color);
+  border-radius: 50%;
+  background-color: var(--text-color);
+}
+
+/* .step-current {
+
+} */
+
+.step-not-passed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  color: var(--text-color-lit);
+  font-size: 22px;
+  font-weight: 600;
+  border-radius: 50%;
+  border: 1px solid var(--bg-color-lit);
+  background-color: var(--bg-color-lit);
+}
+
+.hr-passed {
+  width: 80px;
+  border: 2px solid var(--text-color-lit);
+}
+
+.hr-not-passed {
+  width: 80px;
+  border: 2px solid var(--bg-color-lit);
+}
+
+
+
+
 
 
 /* For NavBar Component */

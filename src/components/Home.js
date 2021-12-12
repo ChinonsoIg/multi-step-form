@@ -3,6 +3,7 @@ import Intro from './Intro'
 import Input from "./Input";
 import Radio from './Radio';
 import Preview from "./Preview";
+import Stepper from './Stepper';
 
 const Home = () => {
   const [step, setStep] = useState(1);
@@ -83,14 +84,13 @@ const Home = () => {
       step: prev + 1
     }))
 
-    console.log(data)
   }
-
-  console.log(data.stepThree.value)
 
   return (
     <div className='home-container'>
-      {/* <Intro /> */}
+      <Stepper
+        step={step}
+      />
 
       <div className='form-container'>
         <form>
