@@ -9,33 +9,33 @@ const Home = () => {
 
   const [data, setData] = useState({
     stepOne: {
-      name: 'fullName',
+      // name: 'fullName',
       value: '',
-      type: 'input',
+      // type: 'input',
       label: 'Full name',
     },
     stepTwo: {
-      name: 'email',
+      // name: 'email',
       value: '',
-      type: 'input',
+      // type: 'input',
       label: 'Email',
     },
     stepThree: {
-      name: 'hasSwedbankAccount',
+      // name: 'hasSwedbankAccount',
       value: '',
-      type: 'radio',
-      label: 'Do you have an account with Swedbank',
+      // type: 'radio',
+      label: 'Do you have an account with Swedbank?',
     },
     stepFourA: {
-      name: 'swedBankPin',
+      // name: 'swedBankPin',
       value: '',
-      type: 'input',
+      // type: 'input',
       label: 'Swedbank PIN',
     },
     stepFourB: {
-      name: 'otherBankPin',
+      // name: 'otherBankPin',
       value: '',
-      type: 'input',
+      // type: 'input',
       label: 'Other bank PIN',
     },
     stepFive: {
@@ -79,6 +79,9 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setStep(prev => ({
+      step: prev + 1
+    }))
 
     console.log(data)
   }
@@ -153,9 +156,34 @@ const Home = () => {
                 onChange={(e) => handleChange(e)}
               />
             )}
-            {step >= 6 && (
+            {step === 6 && (
               <Preview 
-                data={data}
+                data={[
+                  {
+                    label: data.stepOne.label, 
+                    value: data.stepOne.value
+                  },
+                  {
+                    label: data.stepTwo.label, 
+                    value: data.stepTwo.value
+                  },
+                  {
+                    label: data.stepThree.label, 
+                    value: data.stepThree.value
+                  },
+                  {
+                    label: data.stepFourA.label, 
+                    value: data.stepFourA.value
+                  },
+                  {
+                    label: data.stepFourB.label, 
+                    value: data.stepFourB.value
+                  },
+                  {
+                    label: data.stepFive.label, 
+                    value: data.stepFive.value
+                  }
+                ]}
               />
             )}
           </div>
@@ -171,7 +199,7 @@ const Home = () => {
             </button>
           )}
           
-          {step < 4 ? (
+          {step < 6 ? (
             <button onClick={() => setStep(step + 1)}>
               Next
             </button>
