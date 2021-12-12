@@ -26,7 +26,6 @@ nav {
   display: flex;
   background-color: var(--bg-color-lit);
   height: 50px;
-
   /* border: 2px solid red */
 }
 nav > a {
@@ -110,21 +109,27 @@ button:hover {
 }
 
 .home-container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
+  /* border-radius: 5px;
+  background-color: #f2f2f2; */
   margin: 20px auto;
   max-width: 600px;
+  /* border: 2px solid red */
 }
 
 .form-container {
   padding: 15px;
+  margin: 15px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  border: 2px solid red
 }
 
 .btn-container {
+  border-top: 1px solid red;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 15px;
+  margin: 30px 0 0 0;
 }
 
 

@@ -1,30 +1,32 @@
 import React from 'react';
 
-const Radio = () => {
+const Radio = ({ name, value, label, onChange, title }) => {
   return (
     <div>
-      <div className="radio">
+      <p>{label}</p>
+      <div style={{display: 'flex', justifyContent: 'flex-start'}}>
         <label>
           <input
-            type="radio"
-            value="Male"
-            checked={this.state.selectedOption === "Male"}
-            onChange={this.onValueChange}
+            type='radio'
+            name={name}
+            value='no'
+            title={title}
+            onChange={onChange}
           />
-          Male
+          No
         </label>
-        </div>
-        <div className="radio">
+
         <label>
           <input
-            type="radio"
-            value="Female"
-            checked={this.state.selectedOption === "Female"}
-            onChange={this.onValueChange}
+            type='radio'
+            name={name}
+            value='yes'
+            title={title}
+            onChange={onChange}
           />
-          Female
+          Yes
         </label>
-        </div>
+      </div>
 
     </div>
   )

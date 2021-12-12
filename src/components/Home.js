@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Intro from './Intro'
 import Input from "./Input";
+import Radio from './Radio';
+import Preview from "./Preview";
 
 const Home = () => {
   const [step, setStep] = useState(1);
@@ -8,11 +10,9 @@ const Home = () => {
   const [data, setData] = useState({
     stepOne: {
       name: 'fullName',
-      label: 'Full name',
       value: '',
       type: 'input',
       label: 'Full name',
-      required: true,
     },
     stepTwo: {
       name: 'email',
@@ -25,10 +25,6 @@ const Home = () => {
       value: '',
       type: 'radio',
       label: 'Do you have an account with Swedbank',
-      choices: [
-        { value: 'no', label: 'No' },
-        { value: 'yes', label: 'Yes' }
-      ]
     },
     stepFourA: {
       name: 'swedBankPin',
@@ -40,7 +36,7 @@ const Home = () => {
       name: 'otherBankPin',
       value: '',
       type: 'input',
-      label: 'Swedbank PIN',
+      label: 'Other bank PIN',
     },
     stepFive: {
       name: 'purposeOfLoan',
@@ -58,14 +54,27 @@ const Home = () => {
   }
 
   const handleChange = (e) => {
+
+    // console.log(e.target.type)
     
-    setData(prev => ({ 
-      ...prev, 
-      [e.target.title]: {
-        ...prev[e.target.title],
-        value: e.target.value
-      } 
-    }))
+    if (e.target.type === 'text') {
+      setData(prev => ({ 
+        ...prev, 
+        [e.target.title]: {
+          ...prev[e.target.title],
+          value: e.target.value
+        } 
+      }))
+    } else if (e.target.type === 'radio') {
+      console.log(e.target.title, e.target.type, e.target.value)
+      setData(prev => ({ 
+        ...prev, 
+        [e.target.title]: {
+          ...prev[e.target.title],
+          value: e.target.value
+        } 
+      }))
+    }
   }
 
   const handleSubmit = (e) => {
@@ -74,7 +83,7 @@ const Home = () => {
     console.log(data)
   }
 
-  // console.log(data['stepFive'])
+  console.log(data.stepThree.value)
 
   return (
     <div className='home-container'>
@@ -82,7 +91,7 @@ const Home = () => {
 
       <div className='form-container'>
         <form>
-          <div className='form-container'>
+          <div /*className='form-container'*/>
             {step === 1 && (
               <Input 
                 title='stepOne'
@@ -98,19 +107,55 @@ const Home = () => {
                 title='stepTwo'
                 name='email'
                 label={data.stepTwo.label}
-                placeHolder='Email'
+                placeHolder='Email...'
                 value={data.stepTwo.value}
                 onChange={(e) => handleChange(e)}
               />
             )}
             {step === 3 && (
+              <Radio
+                title='stepThree'
+                name='hasSwedbankAccount'
+                label={data.stepThree.label}
+                value={data.stepThree.value}
+                onChange={(e) => handleChange(e)}
+              />
+            )}
+              
+            {step === 4 && (
+              data.stepThree.value === 'yes' ? (
+                <Input 
+                  title='stepFourA'
+                  name='swedBankPin'
+                  label={data.stepFourA.label}
+                  placeHolder='Swedbank PIN...'
+                  value={data.stepFourA.value}
+                  onChange={(e) => handleChange(e)}
+                />
+              ) : (
+                <Input 
+                  title='stepFourB'
+                  name='otherBankPin'
+                  label={data.stepFourB.label}
+                  placeHolder='Other bank PIN...'
+                  value={data.stepFourB.value}
+                  onChange={(e) => handleChange(e)}
+                />
+              )
+            )}
+            {step === 5 && (
               <Input 
                 title='stepFive'
                 name='purposeOfLoan'
-                label='Purpose Of Loan'
-                placeHolder='Purpose of loan'
+                label={data.stepFive.label}
+                placeHolder='Purpose of loan...'
                 value={data.stepFive.value}
                 onChange={(e) => handleChange(e)}
+              />
+            )}
+            {step >= 6 && (
+              <Preview 
+                data={data}
               />
             )}
           </div>
