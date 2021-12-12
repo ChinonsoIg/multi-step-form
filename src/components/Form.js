@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import Intro from './Intro'
+import { useNavigate } from "react-router-dom";
 import Input from './Input';
 import Radio from './Radio';
 import Preview from './Preview';
@@ -7,6 +7,7 @@ import Stepper from './Stepper';
 import { validateEmail } from '../utils/functions';
 
 const Form = ({ width }) => {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [errors, setErrors] = useState('');
 
@@ -84,18 +85,25 @@ const Form = ({ width }) => {
           return;
         }
       } else if (step === 4) {
-        if (
-          (data.stepFourA.value === '') || 
-          (data.stepFourB.value === '')
-        ) {
+        if (data.stepFourA.value === '') {
           const err = 'Field is required!';
           return setErrors(err);
-        } else {
+        }
+        if (data.stepFourA.value !== '') {
           setStep(step + value);
           setErrors('')
           return;
         }
-      }else if (step === 5) {
+        if (data.stepFourB.value === '') {
+          const err = 'Field is required!';
+          return setErrors(err);
+        }
+        if (data.stepFourB.value !== '') {
+          setStep(step + value);
+          setErrors('')
+          return;
+        }
+      } else if (step === 5) {
         if (data.stepFive.value === '') {
           const err = 'Field is required!';
           return setErrors(err);
@@ -128,9 +136,10 @@ const Form = ({ width }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setStep(prev => ({
-    //   step: prev + 1
-    // }))
+    
+    setTimeout(() => { 
+      navigate('/');
+    }, 3000);
 
   }
 
