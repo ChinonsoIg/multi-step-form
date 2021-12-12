@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Radio = ({ name, value, label, onChange, title }) => {
+const Radio = ({ name, value, label, onChange, title, errors }) => {
   return (
     <div>
       <p>{label}</p>
@@ -27,7 +27,7 @@ const Radio = ({ name, value, label, onChange, title }) => {
           Yes
         </label>
       </div>
-
+      <p className='error'>{errors}</p>
     </div>
   )
 }

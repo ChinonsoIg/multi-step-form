@@ -63,14 +63,22 @@ nav > a:hover {
   transition: all .1s ease-out;
 }
 
-input[type=text], select {
+input[type=text] {
   width: 100%;
   padding: 12px 20px;
-  margin: 8px 0;
+  margin: 8px 0 0 0;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+}
+
+.error {
+  padding: 0;
+  margin: 0;
+  color: red;
+  font-size: 14px;
+  font-style: italic;
 }
 
 
@@ -140,6 +148,7 @@ ul {
   align-items: center;
   border: 2px solid green;
   padding: 0;
+  margin: 10px;
 }
 
 li {
@@ -147,7 +156,6 @@ li {
   justify-content: space-between;
   align-items: center;
   padding: 0;
-  /* border: 2px solid red; */
 }
 
 .step-passed {
@@ -156,8 +164,8 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   color: var(--white);
   font-size: 22px;
   font-weight: 600;
@@ -175,8 +183,8 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   color: var(--white);
   font-size: 22px;
   font-weight: 600;
@@ -193,8 +201,8 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   color: var(--text-color-lit);
   font-size: 22px;
   font-weight: 600;
@@ -204,14 +212,21 @@ li {
 }
 
 .hr-passed {
-  width: 80px;
+  width: 61px;
   border: 2px solid var(--text-color-lit);
 }
 
 .hr-not-passed {
-  width: 80px;
+  width: 61px;
   border: 2px solid var(--bg-color-lit);
 }
+
+.step-number-mobile {
+  font-size: 20px;
+  color: var(--text-color);
+  margin: 0 0 0 10px;
+}
+
 
 
 

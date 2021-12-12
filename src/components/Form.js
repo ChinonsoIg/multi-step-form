@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
-import Intro from './Intro'
-import Input from "./Input";
+import React, { useState, useEffect } from 'react'
+// import Intro from './Intro'
+import Input from './Input';
 import Radio from './Radio';
-import Preview from "./Preview";
+import Preview from './Preview';
 import Stepper from './Stepper';
+import { validateEmail } from '../utils/functions';
 
-const Home = () => {
+const Form = ({ width }) => {
   const [step, setStep] = useState(1);
+  const [errors, setErrors] = useState('');
 
   const [data, setData] = useState({
     stepOne: {
@@ -46,55 +48,116 @@ const Home = () => {
       label: 'Why should we give you loan?',
     }
   });
+  
 
-  const handleStep = (val, e) => {
-    console.log(step)
-    e.preventDefault();
-    setStep(prev => prev + val);
-    console.log(step)
+  const handleStep = (value) => {
+
+    if (value === 1) {    
+      if (step === 1) {
+        if (data.stepOne.value === '') {
+          const err = 'Field is required!';
+          return setErrors(err);
+        } else {       
+          setStep(step + value);
+          setErrors('')
+          return;
+        }
+      } else if (step === 2) {
+        if (data.stepTwo.value === '') {
+          const err = 'Email is required!';
+          return setErrors(err);
+        } else if (!validateEmail(data.stepTwo.value)) {
+          const err = 'Email must be valid!';
+          return setErrors(err);
+        } else {
+          setStep(step + value);
+          setErrors('')
+          return;
+        }
+      } else if (step === 3) {
+        if (data.stepThree.value === '') {
+          const err = 'Please select an option!';
+          return setErrors(err);
+        } else {
+          setStep(step + value);
+          setErrors('')
+          return;
+        }
+      } else if (step === 4) {
+        if (
+          (data.stepFourA.value === '') || 
+          (data.stepFourB.value === '')
+        ) {
+          const err = 'Field is required!';
+          return setErrors(err);
+        } else {
+          setStep(step + value);
+          setErrors('')
+          return;
+        }
+      }else if (step === 5) {
+        if (data.stepFive.value === '') {
+          const err = 'Field is required!';
+          return setErrors(err);
+        } else {
+          setStep(step + value);
+          setErrors('')
+          return;
+        }
+      } 
+
+  } else {
+    setStep(step + value);
+    setErrors('')
+  }
+    
+    
   }
 
   const handleChange = (e) => {
-
-    // console.log(e.target.type)
     
-    if (e.target.type === 'text') {
-      setData(prev => ({ 
-        ...prev, 
-        [e.target.title]: {
-          ...prev[e.target.title],
-          value: e.target.value
-        } 
-      }))
-    } else if (e.target.type === 'radio') {
-      console.log(e.target.title, e.target.type, e.target.value)
-      setData(prev => ({ 
-        ...prev, 
-        [e.target.title]: {
-          ...prev[e.target.title],
-          value: e.target.value
-        } 
-      }))
-    }
+    setData(prev => ({ 
+      ...prev, 
+      [e.target.title]: {
+        ...prev[e.target.title],
+        value: e.target.value
+      } 
+    }))
+
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setStep(prev => ({
-      step: prev + 1
-    }))
+    // setStep(prev => ({
+    //   step: prev + 1
+    // }))
 
   }
+
+  useEffect(() => {
+    // handleStep();
+  }, [errors, step])
 
   return (
     <div className='home-container'>
       <Stepper
         step={step}
+        width={width}
       />
 
       <div className='form-container'>
         <form>
-          <div /*className='form-container'*/>
+          <div>
+          {/* {step === 0 && (
+              <Intro 
+                title='stepOne'
+                name='fullName'
+                label={data.stepOne.label}
+                placeHolder='Full name...'
+                value={data.stepOne.value}
+                onChange={(e) => handleChange(e)}
+              />
+            )} */}
             {step === 1 && (
               <Input 
                 title='stepOne'
@@ -102,6 +165,7 @@ const Home = () => {
                 label={data.stepOne.label}
                 placeHolder='Full name...'
                 value={data.stepOne.value}
+                errors={errors}
                 onChange={(e) => handleChange(e)}
               />
             )}
@@ -112,6 +176,7 @@ const Home = () => {
                 label={data.stepTwo.label}
                 placeHolder='Email...'
                 value={data.stepTwo.value}
+                errors={errors}
                 onChange={(e) => handleChange(e)}
               />
             )}
@@ -121,6 +186,7 @@ const Home = () => {
                 name='hasSwedbankAccount'
                 label={data.stepThree.label}
                 value={data.stepThree.value}
+                errors={errors}
                 onChange={(e) => handleChange(e)}
               />
             )}
@@ -133,6 +199,7 @@ const Home = () => {
                   label={data.stepFourA.label}
                   placeHolder='Swedbank PIN...'
                   value={data.stepFourA.value}
+                  errors={errors}
                   onChange={(e) => handleChange(e)}
                 />
               ) : (
@@ -142,6 +209,7 @@ const Home = () => {
                   label={data.stepFourB.label}
                   placeHolder='Other bank PIN...'
                   value={data.stepFourB.value}
+                  errors={errors}
                   onChange={(e) => handleChange(e)}
                 />
               )
@@ -153,6 +221,7 @@ const Home = () => {
                 label={data.stepFive.label}
                 placeHolder='Purpose of loan...'
                 value={data.stepFive.value}
+                errors={errors}
                 onChange={(e) => handleChange(e)}
               />
             )}
@@ -194,13 +263,13 @@ const Home = () => {
 
         <div className='btn-container'>
           {step > 1 && (
-            <button onClick={() => setStep(step - 1)}>
+            <button onClick={() => handleStep(-1)}>
               Prev
             </button>
           )}
           
           {step < 6 ? (
-            <button onClick={() => setStep(step + 1)}>
+            <button onClick={() => handleStep(1)}>
               Next
             </button>
           ) : (
@@ -215,4 +284,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default Form;

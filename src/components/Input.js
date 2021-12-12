@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Input = ({ name, value, label, placeHolder, onChange, title }) => {
+const Input = ({ name, value, label, placeHolder, onChange, title, errors }) => {
 
   return (
     <div>
@@ -15,6 +15,7 @@ const Input = ({ name, value, label, placeHolder, onChange, title }) => {
           title={title} 
         />
       </label>
+      <p className='error'>{errors}</p>
     </div>
   );
 }
