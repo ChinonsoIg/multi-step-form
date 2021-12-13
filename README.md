@@ -1,6 +1,7 @@
 # Multi-Step-Form Project
-This project can be used to search and store books on different shelves, depending on the books you have read, the ones you are currently reading, and the ones you want to read.
-The link to the hosted version is: [chinonso-myreads-app](https://chinonso-myreads-app.netlify.app).
+This project is built with react and pure CSS.
+The link to the hosted version is: [chinonso-multi-step-form
+](https://chinonso-multi-step-form.netlify.app).
 
 ## Purpose
 This App was built as an assessment.
@@ -26,8 +27,5 @@ A new browser tab should automatically open displaying the app. However, if this
 
 ## How to Use the App
 The homepage displays an intro. Click on the button "Apply for loan" to start your loan application.\
-The application process has six steps. A step indicator shows steps that are completed.\
-After completion, a summary of the application is displayed for preview before submission. The user can go back to previous sections.\
-
-Check out the app live https://happy-meitner-cbd6c6.netlify.app
-
+The application process has six steps. A step indicator shows the steps (both the completed steps and the pending steps).\
+After completion, a summary of the application is displayed for preview before submission. The user can go back to previous steps to edit the data before submission.\
