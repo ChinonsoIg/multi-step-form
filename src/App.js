@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Form from "./components/Form";
 import Navbar from "./components/Navbar";
-// import { swedColourLight } from "./utils/colours";
 import {
   BrowserRouter as Router,
   Routes,
@@ -33,7 +32,6 @@ const App  = () => {
   return (
     <div className='wrapper'>
       <div className='stripe'></div>
-      <h1 className='swed-header'>Swedbank</h1>
       <Navbar width={dimensions.width} />
 
       <Router>

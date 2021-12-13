@@ -9,4 +9,4 @@ const StepperButton = () => {
   )
 }
 
-export default StepperButton
+export default StepperButton;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Radio = ({ name, value, label, onChange, title, errors }) => {
+const Radio = ({ name, label, onChange, title, errors }) => {
   return (
     <div>
       <p>{label}</p>
@@ -33,20 +33,3 @@ const Radio = ({ name, value, label, onChange, title, errors }) => {
 }
 
 export default Radio;
-
-
-
-
-// switch (step) {
-//   case 1:
-//     setFullName(e.target.value)
-//     break;
-//   case 2:
-//     setEmail(e.target.value)
-//     break;
-//   case 3:
-//     setSwedbankId(e.target.value)
-//     break;
-//   default:
-//     break;
-// }

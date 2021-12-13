@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import Input from './Input';
 import Radio from './Radio';
@@ -85,22 +85,12 @@ const Form = ({ width }) => {
           return;
         }
       } else if (step === 4) {
-        if (data.stepFourA.value === '') {
+        if ((data.stepFourA.value === '') && (data.stepFourB.value === '')) {
           const err = 'Field is required!';
           return setErrors(err);
-        }
-        if (data.stepFourA.value !== '') {
+        } else {
           setStep(step + value);
-          setErrors('')
-          return;
-        }
-        if (data.stepFourB.value === '') {
-          const err = 'Field is required!';
-          return setErrors(err);
-        }
-        if (data.stepFourB.value !== '') {
-          setStep(step + value);
-          setErrors('')
+          setErrors('');
           return;
         }
       } else if (step === 5) {
@@ -143,10 +133,6 @@ const Form = ({ width }) => {
 
   }
 
-  useEffect(() => {
-    // handleStep();
-  }, [errors, step])
-
   return (
     <div className='home-container'>
       <Stepper
@@ -157,16 +143,6 @@ const Form = ({ width }) => {
       <div className='form-container'>
         <form>
           <div>
-          {/* {step === 0 && (
-              <Intro 
-                title='stepOne'
-                name='fullName'
-                label={data.stepOne.label}
-                placeHolder='Full name...'
-                value={data.stepOne.value}
-                onChange={(e) => handleChange(e)}
-              />
-            )} */}
             {step === 1 && (
               <Input 
                 title='stepOne'

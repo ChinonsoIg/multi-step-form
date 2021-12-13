@@ -5,8 +5,8 @@ const Stepper = ({ step, width }) => {
   if (width <= 646) {
     return (
       <div>
-        <ul>
-          <li>
+        <ul className='stepper'>
+          <li className='stepper-list'>
             <span className='step-not-passed'>
               {step}
             </span>
@@ -20,7 +20,7 @@ const Stepper = ({ step, width }) => {
   
   return (
     <ul className='stepper'>
-      <li>
+      <li className='stepper-list'>
         <span  
           className={step > 1 
           ? 'step-passed' : 'step-not-passed'} >
