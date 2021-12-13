@@ -28,7 +28,7 @@ const Stepper = ({ step, width }) => {
         </span>
         <hr className={step > 1 ? 'hr-passed' : 'hr-not-passed'} />
       </li>
-      <li>
+      <li className='stepper-list'>
         <span 
           className={step > 2 
           ? 'step-passed' : 'step-not-passed'}>
@@ -36,7 +36,7 @@ const Stepper = ({ step, width }) => {
         </span>
         <hr className={step > 2 ? 'hr-passed' : 'hr-not-passed'} />
       </li>
-      <li>
+      <li className='stepper-list'>
         <span 
           className={step > 3 
           ? 'step-passed' : 'step-not-passed'}>
@@ -44,7 +44,7 @@ const Stepper = ({ step, width }) => {
         </span>
         <hr className={step > 3 ? 'hr-passed' : 'hr-not-passed'} />
       </li>
-      <li>
+      <li className='stepper-list'>
         <span 
           className={step > 4 
           ? 'step-passed' : 'step-not-passed'}>
@@ -52,7 +52,7 @@ const Stepper = ({ step, width }) => {
         </span>
         <hr className={step > 4 ? 'hr-passed' : 'hr-not-passed'} />
       </li>
-      <li>
+      <li className='stepper-list'>
         <span 
           className={step > 5 
           ? 'step-passed' : 'step-not-passed'}>
@@ -60,7 +60,7 @@ const Stepper = ({ step, width }) => {
         </span>
         <hr className={step > 4 ? 'hr-passed' : 'hr-not-passed'} />
       </li>
-      <li>
+      <li className='stepper-list'>
         <span 
           className={step > 6 
           ? 'step-passed' : 'step-not-passed'}>
