@@ -1,13 +1,14 @@
 import React from 'react'
 
 const Preview = ({ data }) => {
+  const validQuestions = data.filter(datum => datum.value !== '');
 
   return (
     <div>
       <h3 style={{textAlign: 'center'}}>Preview</h3>
       <hr />
       <div>
-        {data.map((datum) => {
+        {validQuestions.map((datum) => {
           return (
             <div key={datum.label}>
               <p>{datum.label}:</p>

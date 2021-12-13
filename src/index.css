@@ -1,11 +1,12 @@
 :root {
-  --white: white;
+  --white: rgb(255, 255, 255);
   --bg-color-lit: rgba(252, 159, 28, 0.1);
   --header: rgb(243, 91, 28);
   --text-color: rgb(252, 159, 28);
   --text-color-lit: rgb(253, 190, 19);
   --text-color-dark: rgb(121, 41, 6);
   --gray-lit: #d9d9d9;
+  --brown: rgb(165, 42, 42);
 }
 
 
@@ -286,7 +287,7 @@ input[type=text] {
   }
   .links li:hover {
     background: var(--text-color-lit);
-    color: brown;
+    color: var(--brown);
     padding-left: 1rem;
     cursor: pointer;
     transition: all .3s ease-out;
