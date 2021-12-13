@@ -12,7 +12,6 @@ const App  = () => {
   const [dimensions, setDimensions] = useState({ 
     width: window.innerWidth
   })
-  console.log(dimensions)
 
   useEffect(() => {
     function handleResize() {

@@ -266,6 +266,7 @@ input[type=text] {
     padding: 0;
     background-color: var(--gray-lit);
     transition: all .3s ease-out;
+    box-shadow: 1px 5px 5px var(--bg-color-lit);
   }
   .show-container {
     display: block;
@@ -279,24 +280,26 @@ input[type=text] {
     padding: 0 ;
     margin: 0;
     background-color: var(--gray-lit);
-    transition: all .3s ease-out;
   }
   .links li {
     background-color: var(--white);
     margin: 1px 0;
     padding: 0.2rem 0.5rem;
-    transition: all .3s ease-out;
   }
   .links li:hover {
     background: var(--text-color-lit);
     color: var(--brown);
     padding-left: 1rem;
-    cursor: pointer;
-    transition: all .3s ease-out;
+    cursor: pointer;    
   }
   .links a {
     font-size: 1rem;
     text-transform: capitalize;
     margin: 5px 0;
+  }
+  .bars-mobile:hover {
+    cursor: pointer;
+    transform: rotate(90deg);
+    transition: all .4s ease-out;
   }
 }

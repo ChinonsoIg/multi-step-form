@@ -13,39 +13,27 @@ const Form = ({ width }) => {
 
   const [data, setData] = useState({
     stepOne: {
-      // name: 'fullName',
       value: '',
-      // type: 'input',
       label: 'Full name',
     },
     stepTwo: {
-      // name: 'email',
       value: '',
-      // type: 'input',
       label: 'Email',
     },
     stepThree: {
-      // name: 'hasSwedbankAccount',
       value: '',
-      // type: 'radio',
       label: 'Do you have an account with Swedbank?',
     },
     stepFourA: {
-      // name: 'swedBankPin',
       value: '',
-      // type: 'input',
       label: 'Swedbank PIN',
     },
     stepFourB: {
-      // name: 'otherBankPin',
       value: '',
-      // type: 'input',
       label: 'Other bank PIN',
     },
     stepFive: {
-      name: 'purposeOfLoan',
       value: '',
-      type: 'input',
       label: 'Why should we give you loan?',
     }
   });
